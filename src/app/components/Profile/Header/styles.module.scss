@@ -1,0 +1,36 @@
+.profileHeader{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  position: relative;
+  padding: var(--spacing-4);
+
+  .profilePhoto{
+    display: flex;
+    position: absolute;
+    left: var(--spacing-4);
+    top: -50%;
+    border-radius: var(--radius-rounded);
+    overflow: hidden;
+    border: var(--spacing-1) solid var(--secondary-color);
+
+    img{
+      object-fit: cover;
+    }
+  }
+
+  .profileFollow{
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-3) var(--spacing-5);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    gap: var(--spacing-2);
+    cursor: pointer;
+    font-size: var(--font-size-default);
+  }
+}

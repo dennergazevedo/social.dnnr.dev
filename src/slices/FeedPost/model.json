@@ -1,0 +1,76 @@
+{
+  "id": "feed_post",
+  "type": "SharedSlice",
+  "name": "FeedPost",
+  "description": "FeedPost",
+  "variations": [
+    {
+      "id": "default",
+      "name": "primary",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "author": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Author",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3,hyperlink"
+          }
+        },
+        "createdat": {
+          "type": "Timestamp",
+          "config": {
+            "label": "Created At",
+            "placeholder": ""
+          }
+        },
+        "pinned": {
+          "type": "Boolean",
+          "config": {
+            "label": "Pinned",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "em,hyperlink,embed,list-item,o-list-item,strong,paragraph,heading3"
+          }
+        },
+        "locale": {
+          "type": "GeoPoint",
+          "config": {
+            "label": "Locale"
+          }
+        },
+        "profilephoto": {
+          "type": "Image",
+          "config": {
+            "label": "ProfilePhoto",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}
