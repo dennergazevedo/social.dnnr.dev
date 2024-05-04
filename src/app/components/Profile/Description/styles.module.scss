@@ -65,6 +65,10 @@
         color: var(--gray-scale-3);
         font-size: var(--font-size-default);
       }
+
+      span{
+        cursor: default;
+      }
     }
   }
 }

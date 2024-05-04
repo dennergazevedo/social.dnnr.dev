@@ -27,11 +27,11 @@ const ProfileDescription: React.FC = () => {
         </div>
         <div>
           <FaLink size={16} color="#828282"/>
-          <a href="https://links.dnnr.dev">Links</a>
+          <a href="https://links.dnnr.dev" target='_blank'>Links</a>
         </div>
         <div>
           <FaCalendarDay size={16} color="#828282"/>
-          <span>Dev desde jan/2018</span>
+          <span>Dev desde jan 2018</span>
         </div>
       </div>
     </div>

@@ -34,15 +34,7 @@
 					}
 				]
 			},
-			"locale": {
-				"position": {
-					"lat": 48.8703712,
-					"lng": 2.3865198
-				},
-				"__TYPE__": "GeoPointContent"
-			},
 			"profilephoto": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
@@ -60,7 +52,28 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"locale": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laboris est non nulla velit officia incididunt voluptate sint elit nostrud. Veniam non laborum do culpa qui eu exercitation amet laborum sunt occaecat consectetur. Pariatur elit excepteur veniam sit do cupidatat consectetur Lorem sit aliqua reprehenderit Lorem amet."
+						}
+					}
+				]
 			}
 		},
 		"items": [

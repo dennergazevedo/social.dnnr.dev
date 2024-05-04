@@ -23,6 +23,8 @@
   --spacing-10: 56px;
 
   --radius-default: 4px;
+  --radius-medium: 8px;
+  --radius-large: 16px;
   --radius-full: 100px;
   --radius-rounded: 50%;
 

@@ -1,0 +1,60 @@
+.feedPostProfileContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: var(--spacing-2);
+
+  .feedPostProfilePhoto{
+    display: flex;
+    border-radius: var(--radius-rounded);
+    overflow: hidden;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+  }
+
+  h3{
+    font-size: var(--font-size-default);
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .feedPostProfileAuthorContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+
+    .feedPostProfileAuthor{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .feedPostLocale{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      gap: var(--spacing-1);
+      margin-top: var(--spacing-1);
+      color: var(--gray-scale-3);
+      font-size: var(--font-size-small);
+    }
+  }
+
+  .feedPostCreatedAt{
+    font-size: var(--font-size-small);
+    color: var(--gray-scale-3);
+
+    &::before{
+      content: "•";
+      margin-right: var(--spacing-2);
+    }
+  }
+}

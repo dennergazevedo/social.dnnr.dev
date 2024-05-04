@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type PageDocumentDataSlicesSlice = FeedPostSlice | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -126,12 +126,12 @@ export interface FeedPostSliceDefaultPrimary {
   /**
    * Locale field in *FeedPost → Primary*
    *
-   * - **Field Type**: GeoPoint
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: feed_post.primary.locale
-   * - **Documentation**: https://prismic.io/docs/field#geopoint
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  locale: prismic.GeoPointField;
+  locale: prismic.RichTextField;
 
   /**
    * ProfilePhoto field in *FeedPost → Primary*
@@ -142,6 +142,16 @@ export interface FeedPostSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   profilephoto: prismic.ImageField<never>;
+
+  /**
+   * Link field in *FeedPost → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feed_post.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
 }
 
 /**
