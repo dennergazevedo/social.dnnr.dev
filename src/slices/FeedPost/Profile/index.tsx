@@ -14,7 +14,7 @@ const FeedPostProfile = ({ primary: props }: Content.FeedPostSlice): JSX.Element
     if(!props.createdat) return "";
 
     const date = new Date(props.createdat)
-    return `${date.getDay()} ${months[date.getMonth()]} ${date.getFullYear()}`
+    return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
   }, [props])
 
   return (

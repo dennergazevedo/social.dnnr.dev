@@ -5,5 +5,6 @@ import dynamic from "next/dynamic";
 export const components = {
   experiences: dynamic(() => import("./Experiences")),
   feed_post: dynamic(() => import("./FeedPost")),
+  post: dynamic(() => import("./Post")),
   rich_text: dynamic(() => import("./RichText")),
 };

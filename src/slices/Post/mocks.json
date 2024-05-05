@@ -1,0 +1,70 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Hundred"
+						}
+					}
+				]
+			},
+			"created_in": {
+				"__TYPE__": "FieldContent",
+				"type": "Date",
+				"value": "2017-03-20"
+			},
+			"read_time": {
+				"__TYPE__": "FieldContent",
+				"value": "93",
+				"type": "Number"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Irure commodo in exercitation veniam consectetur magna non."
+						}
+					}
+				]
+			},
+			"slug": {
+				"__TYPE__": "FieldContent",
+				"value": "law",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"tag",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
+						}
+					],
+					[
+						"tagname",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "sold",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

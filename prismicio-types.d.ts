@@ -68,7 +68,11 @@ interface FeedDocumentData {
 export type FeedDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FeedDocumentData>, "feed", Lang>;
 
-type PageDocumentDataSlicesSlice = FeedPostSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice =
+  | PostSlice
+  | ExperiencesSlice
+  | FeedPostSlice
+  | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -140,10 +144,41 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
+type PostsDocumentDataSlicesSlice = PostSlice;
+
+/**
+ * Content for Posts documents
+ */
+interface PostsDocumentData {
+  /**
+   * Slice Zone field in *Posts*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: posts.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PostsDocumentDataSlicesSlice>;
+}
+
+/**
+ * Posts document from Prismic
+ *
+ * - **API ID**: `posts`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PostsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PostsDocumentData>, "posts", Lang>;
+
 export type AllDocumentTypes =
   | ExperiencesDocument
   | FeedDocument
-  | PageDocument;
+  | PageDocument
+  | PostsDocument;
 
 /**
  * Primary content in *Experiences → Primary*
@@ -397,6 +432,113 @@ export type FeedPostSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Post → Primary*
+ */
+export interface PostSliceDefaultPrimary {
+  /**
+   * Slug field in *Post → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post.primary.slug
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slug: prismic.KeyTextField;
+
+  /**
+   * Title field in *Post → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Created In field in *Post → Primary*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post.primary.created_in
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  created_in: prismic.DateField;
+
+  /**
+   * Read Time field in *Post → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post.primary.read_time
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  read_time: prismic.NumberField;
+
+  /**
+   * Content field in *Post → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Post → Items*
+ */
+export interface PostSliceDefaultItem {
+  /**
+   * tagName field in *Post → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post.items[].tagname
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagname: prismic.KeyTextField;
+
+  /**
+   * Tag field in *Post → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: post.items[].tag
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  tag: prismic.LinkField;
+}
+
+/**
+ * Default variation for Post Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PostSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PostSliceDefaultPrimary>,
+  Simplify<PostSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Post*
+ */
+type PostSliceVariation = PostSliceDefault;
+
+/**
+ * Post Shared Slice
+ *
+ * - **API ID**: `post`
+ * - **Description**: Post
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PostSlice = prismic.SharedSlice<"post", PostSliceVariation>;
+
+/**
  * Primary content in *RichText → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -460,6 +602,9 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      PostsDocument,
+      PostsDocumentData,
+      PostsDocumentDataSlicesSlice,
       AllDocumentTypes,
       ExperiencesSlice,
       ExperiencesSliceDefaultPrimary,
@@ -471,6 +616,11 @@ declare module "@prismicio/client" {
       FeedPostSliceDefaultItem,
       FeedPostSliceVariation,
       FeedPostSliceDefault,
+      PostSlice,
+      PostSliceDefaultPrimary,
+      PostSliceDefaultItem,
+      PostSliceVariation,
+      PostSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

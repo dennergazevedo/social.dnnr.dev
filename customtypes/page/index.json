@@ -27,6 +27,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "post": {
+              "type": "SharedSlice"
+            },
+            "experiences": {
+              "type": "SharedSlice"
+            },
             "feed_post": {
               "type": "SharedSlice"
             },

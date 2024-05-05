@@ -1,0 +1,74 @@
+{
+  "id": "post",
+  "type": "SharedSlice",
+  "name": "Post",
+  "description": "Post",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slug": {
+          "type": "Text",
+          "config": {
+            "label": "Slug",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading1"
+          }
+        },
+        "created_in": {
+          "type": "Date",
+          "config": {
+            "label": "Created In",
+            "placeholder": ""
+          }
+        },
+        "read_time": {
+          "type": "Number",
+          "config": {
+            "label": "Read Time",
+            "placeholder": ""
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {
+        "tagname": {
+          "type": "Text",
+          "config": {
+            "label": "tagName",
+            "placeholder": ""
+          }
+        },
+        "tag": {
+          "type": "Link",
+          "config": {
+            "label": "Tag",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}

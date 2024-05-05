@@ -34,8 +34,8 @@
   --font-size-small: 12px;
   --font-size-default: 14px;
   --font-size-normal: 16px;
-  --font-size-title: 32px;
   --font-size-index: 20px;
+  --font-size-title: 32px;
 
   &:hover{
     --primary-color: #075d8c;
