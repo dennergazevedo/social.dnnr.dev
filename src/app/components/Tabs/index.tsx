@@ -9,7 +9,7 @@ import styles from './styles.module.scss'
 const Tabs: React.FC<TabsProps> = ({ feed, experiences, content }: TabsProps) => {
   const [currentTab, setCurrentTab] = useState<Tab>("feed");
 
-  const tabList: Tab[] = ["feed", "experiences", "content"]
+  const tabList: Tab[] = ["feed", "experiências", "conteúdo"]
 
   return (
     <Fragment>
@@ -28,10 +28,10 @@ const Tabs: React.FC<TabsProps> = ({ feed, experiences, content }: TabsProps) =>
       { currentTab === 'feed' && feed &&
         <SliceZone slices={feed} components={components} /> 
       }
-      { currentTab === 'experiences' && experiences &&
+      { currentTab === 'experiências' && experiences &&
         <SliceZone slices={experiences} components={components} /> 
       }
-      { currentTab === 'content' && content &&
+      { currentTab === 'conteúdo' && content &&
         <section className={styles.tabContent}>
           <div className={styles.contentTitleContainer}>
             <h3 className={styles.contentTitle}>Posts</h3>

@@ -1,4 +1,4 @@
-type Tab = "experiences" | "feed" | "content"
+type Tab = "feed" | "experiências" | "conteúdo"
 
 interface TabsProps{
   feed: prismic.SliceZone<FeedPostSlice>
