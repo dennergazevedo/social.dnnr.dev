@@ -11,6 +11,7 @@ import HeaderProfile from "@/app/components/Profile/Header";
 
 import styles from './styles.module.scss'
 import CodeBlock from "@/app/components/CodeBlock";
+import ColorBlock from "@/app/components/ColorBlock";
 
 type Params = { uid: string };
 
@@ -47,7 +48,7 @@ export default async function Page({ params }: { params: Params }) {
   return (
     <section className={styles.blogPostContainer}>
       <div className={styles.blogPostHeader}>
-        <CodeBlock />
+        <ColorBlock />
         <HeaderProfile />
       </div>
       <SliceZone slices={page.data.slices} components={components} />
