@@ -26,8 +26,8 @@ const FeedPost = ({ slice }: FeedPostProps): JSX.Element => {
             key={post.image.id} 
             src={String(post.image.url)}
             alt={String(post.image.alt)}
-            width={350}
-            height={350}
+            width={320}
+            height={320}
           />
         ))}
       </div>

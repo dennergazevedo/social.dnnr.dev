@@ -29,6 +29,7 @@
     img{
       display: flex;
       max-width: calc(100vw - var(--spacing-6));
+      min-width: var(--post-min-width);
       border-radius: var(--radius-large);
       object-fit: cover;
     }
