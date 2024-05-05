@@ -1,0 +1,40 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Would"
+						}
+					}
+				]
+			},
+			"slug": {
+				"__TYPE__": "FieldContent",
+				"value": "design",
+				"type": "Text"
+			},
+			"type": {
+				"__TYPE__": "FieldContent",
+				"value": "External",
+				"type": "Select"
+			},
+			"created_in": {
+				"__TYPE__": "FieldContent",
+				"type": "Date",
+				"value": "2015-09-25"
+			},
+			"locale": {
+				"__TYPE__": "FieldContent",
+				"value": "learn",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

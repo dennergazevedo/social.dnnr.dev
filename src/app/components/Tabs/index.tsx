@@ -6,10 +6,10 @@ import { components } from "@/slices";
 
 import styles from './styles.module.scss'
 
-const Tabs: React.FC<TabsProps> = ({ feed, experiences }: TabsProps) => {
+const Tabs: React.FC<TabsProps> = ({ feed, experiences, content }: TabsProps) => {
   const [currentTab, setCurrentTab] = useState<Tab>("feed");
 
-  const tabList: Tab[] = ["feed", "experiences"]
+  const tabList: Tab[] = ["feed", "experiences", "content"]
 
   return (
     <Fragment>
@@ -30,6 +30,17 @@ const Tabs: React.FC<TabsProps> = ({ feed, experiences }: TabsProps) => {
       }
       { currentTab === 'experiences' && experiences &&
         <SliceZone slices={experiences} components={components} /> 
+      }
+      { currentTab === 'content' && content &&
+        <section className={styles.tabContent}>
+          <div className={styles.contentTitleContainer}>
+            <h3 className={styles.contentTitle}>Posts</h3>
+            <p className={styles.contentSubtitle}>
+              Às vezes eu escreve um pouco, está aqui os meus posts.
+            </p>
+          </div>
+          <SliceZone slices={content} components={components} /> 
+        </section>
       }
     </Fragment>
   )

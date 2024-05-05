@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { codeTip } from './constants';
 import styles from './styles.module.scss'
 
@@ -10,9 +11,9 @@ const CodeBlock: React.FC = () => {
           <div className={styles.codeBlockBullet} style={{ background: "#eeda44" }} />
           <div className={styles.codeBlockBullet} style={{ background: "#44ee4d" }} />
         </div>
-        <h3 className={styles.codeBlockHeaderName}>
+        <Link href="/" className={styles.codeBlockHeaderName}>
           social.dnnr.dev
-        </h3>
+        </Link>
       </header>
       <div className={styles.codeBlockBody}>
         {

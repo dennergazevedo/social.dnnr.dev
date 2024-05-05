@@ -27,12 +27,17 @@ export default async function Index() {
   const client = createClient();
   const feed = await client.getByUID("feed", "feed");
   const experiences = await client.getByUID("experiences", "experiences");
+  const content = await client.getByUID("content", "content");
 
   return (
     <main className={styles.main}>
       <CodeBlock />
       <Profile />
-      <Tabs feed={feed?.data?.slices} experiences={experiences?.data?.slices}/>
+      <Tabs 
+        feed={feed?.data?.slices} 
+        experiences={experiences?.data?.slices}
+        content={content?.data?.slices}
+      />
     </main>
   )
 }

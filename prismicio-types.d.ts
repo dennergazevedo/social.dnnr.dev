@@ -4,6 +4,40 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type ContentDocumentDataSlicesSlice = ContentSlice;
+
+/**
+ * Content for Content documents
+ */
+interface ContentDocumentData {
+  /**
+   * Slice Zone field in *Content*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ContentDocumentDataSlicesSlice>;
+}
+
+/**
+ * Content document from Prismic
+ *
+ * - **API ID**: `content`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContentDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ContentDocumentData>,
+    "content",
+    Lang
+  >;
+
 type ExperiencesDocumentDataSlicesSlice = ExperiencesSlice;
 
 /**
@@ -175,10 +209,97 @@ export type PostsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PostsDocumentData>, "posts", Lang>;
 
 export type AllDocumentTypes =
+  | ContentDocument
   | ExperiencesDocument
   | FeedDocument
   | PageDocument
   | PostsDocument;
+
+/**
+ * Primary content in *Content → Primary*
+ */
+export interface ContentSliceDefaultPrimary {
+  /**
+   * Title field in *Content → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Slug field in *Content → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.primary.slug
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slug: prismic.KeyTextField;
+
+  /**
+   * Type field in *Content → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Blog
+   * - **API ID Path**: content.primary.type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  type: prismic.SelectField<"Blog" | "External", "filled">;
+
+  /**
+   * Created In field in *Content → Primary*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.primary.created_in
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  created_in: prismic.DateField;
+
+  /**
+   * locale field in *Content → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.primary.locale
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  locale: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Content Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContentSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Content*
+ */
+type ContentSliceVariation = ContentSliceDefault;
+
+/**
+ * Content Shared Slice
+ *
+ * - **API ID**: `content`
+ * - **Description**: Content
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentSlice = prismic.SharedSlice<
+  "content",
+  ContentSliceVariation
+>;
 
 /**
  * Primary content in *Experiences → Primary*
@@ -593,6 +714,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ContentDocument,
+      ContentDocumentData,
+      ContentDocumentDataSlicesSlice,
       ExperiencesDocument,
       ExperiencesDocumentData,
       ExperiencesDocumentDataSlicesSlice,
@@ -606,6 +730,10 @@ declare module "@prismicio/client" {
       PostsDocumentData,
       PostsDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ContentSlice,
+      ContentSliceDefaultPrimary,
+      ContentSliceVariation,
+      ContentSliceDefault,
       ExperiencesSlice,
       ExperiencesSliceDefaultPrimary,
       ExperiencesSliceDefaultItem,
