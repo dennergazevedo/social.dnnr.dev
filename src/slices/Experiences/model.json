@@ -1,0 +1,92 @@
+{
+  "id": "experiences",
+  "type": "SharedSlice",
+  "name": "Experiences",
+  "description": "Experiences",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "enterprise": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Enterprise",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "enterprise_logo": {
+          "type": "Image",
+          "config": {
+            "label": "Enterprise Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "locale": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Locale",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "starts_in": {
+          "type": "Date",
+          "config": {
+            "label": "Starts In",
+            "placeholder": ""
+          }
+        },
+        "ends_in": {
+          "type": "Date",
+          "config": {
+            "label": "Ends In",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "role": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Role",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "starts_in": {
+          "type": "Date",
+          "config": {
+            "label": "Starts In",
+            "placeholder": ""
+          }
+        },
+        "ends_in": {
+          "type": "Date",
+          "config": {
+            "label": "Ends In",
+            "placeholder": ""
+          }
+        },
+        "skills": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Skills",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        }
+      }
+    }
+  ]
+}

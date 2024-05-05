@@ -6,6 +6,8 @@
   max-width: var(--max-container);
   margin: 0 auto;
   border-radius: var(--radius-default);
+  padding: var(--spacing-3);
+  border: .5px solid var(--semi-transparent);
 }
 
 .codeBlockHeader{
@@ -16,6 +18,7 @@
   width: 100%;
   position: relative;
   padding: var(--spacing-4);
+  padding-top: 0;
   border-bottom: .5px solid var(--gray-scale-3);
 }
 

@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  experiences: dynamic(() => import("./Experiences")),
   feed_post: dynamic(() => import("./FeedPost")),
   rich_text: dynamic(() => import("./RichText")),
 };

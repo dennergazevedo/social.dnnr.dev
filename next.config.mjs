@@ -10,7 +10,7 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
-  images: { domains: ['images.prismic.io'] }
+  images: { domains: ['images.prismic.io', 'images.unsplash.com'] }
 };
 
 export default nextConfig;

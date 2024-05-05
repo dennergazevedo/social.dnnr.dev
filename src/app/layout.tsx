@@ -4,7 +4,7 @@ import { Ubuntu } from "next/font/google";
 import "./globals.css";
 
 const ubuntu = Ubuntu({
-  weight: "400",
+  weight: ["400", "500", "700"],
   subsets: ['latin'],
   preload: true
 })

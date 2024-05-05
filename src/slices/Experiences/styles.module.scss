@@ -1,0 +1,10 @@
+.experiencesContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: var(--spacing-4);
+  max-width: var(--max-container);
+  margin: 0 auto;
+}

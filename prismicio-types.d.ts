@@ -4,6 +4,70 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type ExperiencesDocumentDataSlicesSlice = ExperiencesSlice;
+
+/**
+ * Content for Experiences documents
+ */
+interface ExperiencesDocumentData {
+  /**
+   * Slice Zone field in *Experiences*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ExperiencesDocumentDataSlicesSlice>;
+}
+
+/**
+ * Experiences document from Prismic
+ *
+ * - **API ID**: `experiences`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ExperiencesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ExperiencesDocumentData>,
+    "experiences",
+    Lang
+  >;
+
+type FeedDocumentDataSlicesSlice = FeedPostSlice;
+
+/**
+ * Content for Feed documents
+ */
+interface FeedDocumentData {
+  /**
+   * Slice Zone field in *Feed*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feed.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FeedDocumentDataSlicesSlice>;
+}
+
+/**
+ * Feed document from Prismic
+ *
+ * - **API ID**: `feed`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FeedDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<FeedDocumentData>, "feed", Lang>;
+
 type PageDocumentDataSlicesSlice = FeedPostSlice | RichTextSlice;
 
 /**
@@ -76,7 +140,140 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = PageDocument;
+export type AllDocumentTypes =
+  | ExperiencesDocument
+  | FeedDocument
+  | PageDocument;
+
+/**
+ * Primary content in *Experiences → Primary*
+ */
+export interface ExperiencesSliceDefaultPrimary {
+  /**
+   * Enterprise field in *Experiences → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.primary.enterprise
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  enterprise: prismic.TitleField;
+
+  /**
+   * Enterprise Logo field in *Experiences → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.primary.enterprise_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  enterprise_logo: prismic.ImageField<never>;
+
+  /**
+   * Locale field in *Experiences → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.primary.locale
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  locale: prismic.RichTextField;
+
+  /**
+   * Starts In field in *Experiences → Primary*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.primary.starts_in
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  starts_in: prismic.DateField;
+
+  /**
+   * Ends In field in *Experiences → Primary*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.primary.ends_in
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  ends_in: prismic.DateField;
+}
+
+/**
+ * Primary content in *Experiences → Items*
+ */
+export interface ExperiencesSliceDefaultItem {
+  /**
+   * Role field in *Experiences → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.items[].role
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  role: prismic.RichTextField;
+
+  /**
+   * Starts In field in *Experiences → Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.items[].starts_in
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  starts_in: prismic.DateField;
+
+  /**
+   * Ends In field in *Experiences → Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.items[].ends_in
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  ends_in: prismic.DateField;
+
+  /**
+   * Skills field in *Experiences → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experiences.items[].skills
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  skills: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Experiences Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ExperiencesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ExperiencesSliceDefaultPrimary>,
+  Simplify<ExperiencesSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Experiences*
+ */
+type ExperiencesSliceVariation = ExperiencesSliceDefault;
+
+/**
+ * Experiences Shared Slice
+ *
+ * - **API ID**: `experiences`
+ * - **Description**: Experiences
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ExperiencesSlice = prismic.SharedSlice<
+  "experiences",
+  ExperiencesSliceVariation
+>;
 
 /**
  * Primary content in *FeedPost → Primary*
@@ -254,10 +451,21 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ExperiencesDocument,
+      ExperiencesDocumentData,
+      ExperiencesDocumentDataSlicesSlice,
+      FeedDocument,
+      FeedDocumentData,
+      FeedDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ExperiencesSlice,
+      ExperiencesSliceDefaultPrimary,
+      ExperiencesSliceDefaultItem,
+      ExperiencesSliceVariation,
+      ExperiencesSliceDefault,
       FeedPostSlice,
       FeedPostSliceDefaultPrimary,
       FeedPostSliceDefaultItem,

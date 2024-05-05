@@ -1,0 +1,63 @@
+.enterpriceRolesContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--spacing-3);
+  width: 100%;
+
+  .enterpriceRole{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 var(--spacing-6);
+    padding-top: var(--spacing-6);
+    border-left: 2px solid var(--semi-transparent);
+    position: relative;
+    gap: var(--spacing-2);
+
+    &::before{
+      content: "";
+      display: flex;
+      width: 8px;
+      height: 8px;
+      background: var(--gray-scale-3);
+      border: var(--spacing-2) solid var(--bg-color);
+      border-radius: var(--radius-rounded);
+      position: absolute;
+      left: -13px;
+      top: var(--spacing-3);
+    }
+
+    .enterpriceRoleName{
+      display: flex;
+      font-weight: 500;
+      font-size: var(--font-size-default);
+    }
+
+    .enterpriceDuration{
+      display: flex;
+      font-weight: normal;
+      font-size: var(--font-size-small);
+      color: var(--gray-scale-3);
+    }
+
+    .enterpriceSkills{
+      display: -webkit-box;
+      width: 100%;
+      color: var(--gray-scale-2);
+
+      p{
+        display: flex;
+        width: 100%;
+        font-size: var(--font-size-small);
+      }
+
+      svg{
+        margin-right: var(--spacing-1);
+      }
+    }
+  }
+}
