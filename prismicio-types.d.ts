@@ -512,7 +512,7 @@ export interface FeedPostSliceDefaultPrimary {
  */
 export interface FeedPostSliceDefaultItem {
   /**
-   * image field in *FeedPost → Items*
+   * Image field in *FeedPost → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
