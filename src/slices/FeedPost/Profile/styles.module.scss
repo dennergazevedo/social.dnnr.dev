@@ -58,7 +58,7 @@
 
     &::before{
       content: "•";
-      margin-right: var(--spacing-2);
+      margin: 0 var(--spacing-2);
     }
   }
 }

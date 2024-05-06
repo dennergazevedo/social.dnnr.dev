@@ -5,6 +5,7 @@ import { RichTextField } from "@prismicio/client";
 import Image from "next/image";
 import styles from './styles.module.scss';
 import { PrismicRichText } from "@prismicio/react";
+import { IoMdClose } from "react-icons/io";
 
 interface ImageZoomProps{
   src: string
@@ -28,6 +29,9 @@ const FeedPostImage: React.FC<ImageZoomProps> = ({ src, alt, description }: Imag
       {
         isOpen &&
         <section className={styles.zoomContainer} onClick={toggle}>
+          <div className={styles.closeZoom}>
+            <IoMdClose size={32}/>
+          </div>
           <div>
             <Image src={src} alt={alt} fill />
             <PrismicRichText field={description} />
