@@ -1,0 +1,26 @@
+.zoomContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: var(--bg-color-transparent);
+  backdrop-filter: blur(4px);
+  z-index: 5;
+
+  div{
+    display: flex;
+    max-width: var(--max-container);
+    width: 100vw;
+    height: 80vh;
+    position: relative;
+    
+    img{
+      max-width: var(--max-container) !important;
+      max-height: 80vh;
+    }
+  }
+}
