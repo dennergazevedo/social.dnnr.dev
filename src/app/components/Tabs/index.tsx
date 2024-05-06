@@ -36,7 +36,7 @@ const Tabs: React.FC<TabsProps> = ({ feed, experiences, content }: TabsProps) =>
           <div className={styles.contentTitleContainer}>
             <h3 className={styles.contentTitle}>Posts</h3>
             <p className={styles.contentSubtitle}>
-              Às vezes eu escreve um pouco, está aqui os meus posts.
+              Às vezes escrevo um pouco. Aqui estão meus posts.
             </p>
           </div>
           <SliceZone slices={content} components={components} /> 
