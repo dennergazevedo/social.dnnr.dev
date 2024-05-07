@@ -21,6 +21,10 @@
       align-items: flex-start;
       justify-content: flex-start;
       gap: var(--spacing-2);
+
+      li{
+        margin-left: var(--spacing-8);
+      }
     }
 
     h3{
@@ -33,6 +37,10 @@
       border-radius: var(--radius-default);
       overflow-x: auto;
       overflow-y: hidden;
+    }
+
+    a{
+      color: var(--primary-color);
     }
   }
 }
