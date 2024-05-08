@@ -8,6 +8,7 @@ import styles from './page.module.scss'
 import CodeBlock from "./components/CodeBlock";
 import Profile from "./components/Profile";
 import Tabs from "./components/Tabs";
+import MessageBlock from "./components/MessageBlock";
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -33,6 +34,7 @@ export default async function Index() {
     <main className={styles.main}>
       <CodeBlock />
       <Profile />
+      <MessageBlock />
       <Tabs 
         feed={feed?.data?.slices} 
         experiences={experiences?.data?.slices}

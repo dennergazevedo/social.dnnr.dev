@@ -1,0 +1,74 @@
+.messageBlockContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--max-container);
+  margin: var(--spacing-2) auto;
+  background: transparent;
+  border: .5px solid var(--semi-transparent);
+  border-radius: var(--radius-default);
+  padding: var(--spacing-3) var(--spacing-4);
+  color: var(--secondary-color);
+  font-size: var(--font-size-default);
+  color: var(--gray-scale-3);
+  cursor: pointer;
+}
+
+.messageBlockModalContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: var(--bg-color-transparent);
+  backdrop-filter: blur(4px);
+  z-index: 5;
+
+  .messageBlockModalBody{
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-message-block);
+    width: 90vw;
+    position: relative;
+    background-color: var(--semi-transparent);
+    padding: var(--spacing-5);
+    border-radius: var(--radius-default);
+
+    textarea{
+      display: flex;
+      width: 100%;
+      min-width: 100%;
+      min-height: var(--spacing-10);
+      background: var(--bg-color-transparent);
+      border: .5px solid var(--semi-transparent);
+      border-radius: var(--radius-default);
+      padding: var(--spacing-3) var(--spacing-4);
+      color: var(--secondary-color);
+      font-size: var(--font-size-default);
+      color: var(--gray-scale-3);
+      cursor: pointer;
+      outline: 0;
+    }
+
+    button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-3) var(--spacing-5);
+      border-radius: var(--radius-default);
+      text-decoration: none;
+      color: white;
+      background-color: var(--primary-color);
+      cursor: pointer;
+      font-size: var(--font-size-default);
+      border: none;
+      margin-top: var(--spacing-3);
+    }
+  }
+}
