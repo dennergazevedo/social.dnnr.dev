@@ -37,10 +37,10 @@
     max-width: var(--max-message-block);
     width: 90vw;
     position: relative;
-    background-color: var(--light-transparent);
+    background-color: var(--bg-color);
     padding: var(--spacing-5);
     border-radius: var(--radius-default);
-    border: .5px solid var(--semi-transparent);
+    border: .5px solid var(--gray-scale-3);
 
     .messageBlockModalTitle{
       display: flex;
@@ -58,12 +58,12 @@
       width: 100%;
       min-width: 100%;
       min-height: var(--spacing-10);
-      background: var(--bg-color-transparent);
+      background: var(--semi-transparent);
       border: .5px solid var(--semi-transparent);
       border-radius: var(--radius-default);
       padding: var(--spacing-3) var(--spacing-4);
       color: var(--secondary-color);
-      font-size: var(--font-size-default);
+      font-size: var(--font-size-normal);
       color: var(--gray-scale-3);
       cursor: pointer;
       outline: 0;
