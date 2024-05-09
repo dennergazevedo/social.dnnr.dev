@@ -3,17 +3,11 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import * as emailjs from 'emailjs-com';
 
 import styles from './styles.module.scss'
-import { AiOutlineLoading } from "react-icons/ai";
+import LoadingSpinner from '../LoadingSpinner';
 
 interface ModalBlockProps{
   toggle: () => void
   setSent: Dispatch<SetStateAction<boolean>>
-}
-
-interface MessageBlockForm{
-  message: string
-  user: string
-  status: boolean
 }
 
 const MessageBlockModal: React.FC<ModalBlockProps> = ({ toggle, setSent }: ModalBlockProps) => {
@@ -56,7 +50,7 @@ const MessageBlockModal: React.FC<ModalBlockProps> = ({ toggle, setSent }: Modal
         />
         <button type="submit" data-custom-message-loading="true">
           {loading ? 
-            <AiOutlineLoading size={16}/>
+            <LoadingSpinner />
             : "Enviar"
           }
         </button>

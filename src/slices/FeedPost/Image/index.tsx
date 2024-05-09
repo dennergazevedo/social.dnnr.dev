@@ -6,6 +6,7 @@ import Image from "next/image";
 import styles from './styles.module.scss';
 import { PrismicRichText } from "@prismicio/react";
 import { IoMdClose } from "react-icons/io";
+import LoadingSpinner from "@/app/components/LoadingSpinner";
 
 interface ImageZoomProps{
   src: string
@@ -33,6 +34,9 @@ const FeedPostImage: React.FC<ImageZoomProps> = ({ src, alt, description }: Imag
             <IoMdClose size={32}/>
           </div>
           <div>
+            <div className={styles.loadingContainer}>
+              <LoadingSpinner />
+            </div>
             <Image src={src} alt={alt} fill />
             <PrismicRichText field={description} />
           </div>
