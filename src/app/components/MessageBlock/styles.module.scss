@@ -1,6 +1,6 @@
 .messageBlockContainer{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -14,6 +14,7 @@
   font-size: var(--font-size-default);
   color: var(--gray-scale-3);
   cursor: pointer;
+  gap: var(--spacing-2);
 }
 
 .messageBlockModalContainer{
@@ -36,10 +37,22 @@
     max-width: var(--max-message-block);
     width: 90vw;
     position: relative;
-    background-color: var(--semi-transparent);
+    background-color: var(--light-transparent);
     padding: var(--spacing-5);
     border-radius: var(--radius-default);
+    border: .5px solid var(--semi-transparent);
 
+    .messageBlockModalTitle{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding-bottom: var(--spacing-5);
+      border-radius: var(--radius-default);
+      font-weight: 500;
+    }
+
+    input,
     textarea{
       display: flex;
       width: 100%;
@@ -54,6 +67,11 @@
       color: var(--gray-scale-3);
       cursor: pointer;
       outline: 0;
+    }
+
+    input{
+      min-height: var(--spacing-8);
+      margin-bottom: var(--spacing-3);
     }
 
     button{
