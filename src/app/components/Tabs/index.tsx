@@ -26,7 +26,7 @@ const Tabs: React.FC<TabsProps> = ({ feed, experiences, content }: TabsProps) =>
         setCurrentTab(hash as Tab)
       }
     }
-  }, [])
+  }, [tabList])
 
   return (
     <Fragment>
