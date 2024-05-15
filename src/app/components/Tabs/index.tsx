@@ -1,5 +1,5 @@
 'use client'
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { SliceZone } from '@prismicio/react';
@@ -12,7 +12,9 @@ const Tabs: React.FC<TabsProps> = ({ feed, experiences, content }: TabsProps) =>
 
   const [currentTab, setCurrentTab] = useState<Tab>("feed");
 
-  const tabList: Tab[] = ["feed", "experiências", "conteúdo"]
+  const tabList: Tab[] = useMemo(() => {
+    return ["feed", "experiências", "conteúdo"]
+  }, [])
 
   const selectTab = useCallback((tab: Tab) => {
     setCurrentTab(tab)
