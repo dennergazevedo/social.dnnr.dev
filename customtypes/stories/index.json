@@ -1,0 +1,28 @@
+{
+  "format": "custom",
+  "id": "stories",
+  "label": "Stories",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "stories": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

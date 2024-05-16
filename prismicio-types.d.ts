@@ -208,12 +208,47 @@ interface PostsDocumentData {
 export type PostsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PostsDocumentData>, "posts", Lang>;
 
+type StoriesDocumentDataSlicesSlice = StoriesSlice;
+
+/**
+ * Content for Stories documents
+ */
+interface StoriesDocumentData {
+  /**
+   * Slice Zone field in *Stories*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: stories.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<StoriesDocumentDataSlicesSlice>;
+}
+
+/**
+ * Stories document from Prismic
+ *
+ * - **API ID**: `stories`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type StoriesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<StoriesDocumentData>,
+    "stories",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | ContentDocument
   | ExperiencesDocument
   | FeedDocument
   | PageDocument
-  | PostsDocument;
+  | PostsDocument
+  | StoriesDocument;
 
 /**
  * Primary content in *Content → Primary*
@@ -704,6 +739,71 @@ export type RichTextSlice = prismic.SharedSlice<
   RichTextSliceVariation
 >;
 
+/**
+ * Primary content in *Storie → Primary*
+ */
+export interface StoriesSliceDefaultPrimary {
+  /**
+   * Image field in *Storie → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: stories.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Video field in *Storie → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: stories.primary.video
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  video: prismic.EmbedField;
+
+  /**
+   * CreatedIn field in *Storie → Primary*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: stories.primary.createdin
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  createdin: prismic.TimestampField;
+}
+
+/**
+ * Default variation for Storie Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StoriesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StoriesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Storie*
+ */
+type StoriesSliceVariation = StoriesSliceDefault;
+
+/**
+ * Storie Shared Slice
+ *
+ * - **API ID**: `stories`
+ * - **Description**: Stories
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StoriesSlice = prismic.SharedSlice<
+  "stories",
+  StoriesSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -729,6 +829,9 @@ declare module "@prismicio/client" {
       PostsDocument,
       PostsDocumentData,
       PostsDocumentDataSlicesSlice,
+      StoriesDocument,
+      StoriesDocumentData,
+      StoriesDocumentDataSlicesSlice,
       AllDocumentTypes,
       ContentSlice,
       ContentSliceDefaultPrimary,
@@ -753,6 +856,10 @@ declare module "@prismicio/client" {
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
+      StoriesSlice,
+      StoriesSliceDefaultPrimary,
+      StoriesSliceVariation,
+      StoriesSliceDefault,
     };
   }
 }

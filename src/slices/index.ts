@@ -8,4 +8,5 @@ export const components = {
   feed_post: dynamic(() => import("./FeedPost")),
   post: dynamic(() => import("./Post")),
   rich_text: dynamic(() => import("./RichText")),
+  stories: dynamic(() => import("./Storie")),
 };
