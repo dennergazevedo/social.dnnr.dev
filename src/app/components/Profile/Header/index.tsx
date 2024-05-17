@@ -12,6 +12,7 @@ const HeaderProfile: React.FC<ProfileHeaderProps> = ({ stories }: ProfileHeaderP
   const [storiesOpened, setStoriesOpened] = useState<boolean>(false);
 
   const toggleStories = () => setStoriesOpened(prev => !prev)
+  const closeStories = () => setStoriesOpened(false)
 
   return (
     <Fragment>
@@ -32,7 +33,15 @@ const HeaderProfile: React.FC<ProfileHeaderProps> = ({ stories }: ProfileHeaderP
           Seguir <FaLinkedin size={20}/>
         </a>
       </header>
-      <Stories stories={stories} isOpened={storiesOpened} toggle={toggleStories}/>
+      {
+        stories?.length &&
+        <Stories 
+          stories={stories} 
+          isOpened={storiesOpened} 
+          toggle={toggleStories} 
+          close={closeStories}
+        />
+      }
     </Fragment>
   )
 }

@@ -1,3 +1,3 @@
 interface ProfileHeaderProps{
-  stories: prismic.SliceZone<StoriesSlice>
+  stories?: prismic.SliceZone<StoriesSlice>
 }

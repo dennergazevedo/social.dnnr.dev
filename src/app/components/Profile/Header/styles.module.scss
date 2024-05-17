@@ -14,10 +14,12 @@
     top: -50%;
     border-radius: var(--radius-rounded);
     overflow: hidden;
-    border: var(--spacing-1) solid var(--secondary-color);
+    background: linear-gradient(to right, var(--primary-color), var(--highlight-color), var(--primary-color));
+    padding: 4px;
     cursor: pointer;
 
     img{
+      border-radius: var(--radius-rounded);
       object-fit: cover;
     }
   }

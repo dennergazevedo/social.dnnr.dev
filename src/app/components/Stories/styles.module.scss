@@ -22,7 +22,37 @@
     img{
       max-width: var(--max-container) !important;
       max-height: 80vh;
+      border-radius: var(--spacing-2);
     }
+
+    .storieProgressBarContainer {
+      display: flex;
+      width: calc(100% - var(--spacing-6));
+      height: var(--spacing-0);
+      border-radius: var(--radius-default);
+      position: absolute;
+      margin: 0 var(--spacing-0);
+      z-index: 1;
+      top: var(--spacing-3);
+      left: var(--spacing-2);
+
+      .storieProgressBarBody{
+        display: flex;
+        width: 100%;
+        height: var(--spacing-0);
+        background-color: var(--gray-scale-3);
+        border-radius: var(--radius-default);
+        margin: 0 var(--spacing-0);
+        z-index: 1;
+
+        .storieProgressBar {
+          display: flex;
+          height: var(--spacing-0);
+          background-color: var(--secondary-color);
+        }
+      }      
+    }
+    
     [data-custom-stories-control="next"],
     [data-custom-stories-control="prev"]{
       display: flex;

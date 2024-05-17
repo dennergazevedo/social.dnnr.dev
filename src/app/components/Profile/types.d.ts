@@ -1,3 +1,3 @@
-interface {
-  content: prismic.SliceZone<StoriesSlice>
+interface ProfileProps{
+  stories: prismic.SliceZone<StoriesSlice>
 }
