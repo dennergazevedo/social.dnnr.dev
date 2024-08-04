@@ -36,4 +36,18 @@
     cursor: pointer;
     font-size: var(--font-size-default);
   }
+
+  .toolsLink{
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-3);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: var(--gray-scale-1);
+    gap: var(--spacing-2);
+    cursor: pointer;
+    font-size: var(--font-size-default);
+    margin-right: var(--spacing-3)
+  }
 }
