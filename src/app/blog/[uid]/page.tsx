@@ -10,7 +10,6 @@ import { components } from "@/slices";
 import HeaderProfile from "@/app/components/Profile/Header";
 
 import styles from './styles.module.scss'
-import CodeBlock from "@/app/components/CodeBlock";
 import ColorBlock from "@/app/components/ColorBlock";
 
 type Params = { uid: string };
