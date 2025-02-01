@@ -6,7 +6,6 @@ import profileImg from './profile.jpeg'
 
 import { FaLinkedin } from "react-icons/fa6";
 import { TbTool } from "react-icons/tb";
-import { PiUserCircleGearFill } from "react-icons/pi";
 import { Fragment, useState } from "react";
 import Stories from "../../Stories";
 
@@ -27,14 +26,6 @@ const HeaderProfile: React.FC<ProfileHeaderProps> = ({ stories }: ProfileHeaderP
             height={120}
           />
         </div>
-        <a
-          className={styles.toolsLink}
-          href="/dnr-cv.pdf"
-          download="dnr-cv.pdf"
-          aria-label="Currículo de Denner Azevedo"
-        >
-          <PiUserCircleGearFill size={20} />
-        </a>
         <a
           className={styles.toolsLink}
           href="https://tools.dnnr.dev"
